@@ -1,0 +1,88 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "product_name": "Wireless Earbuds Pro",
+      "product_brand": "Prime Gadget Store",
+      "image": "1.png",
+      "category": 0,
+      "stock": 1,
+      "sku": "PGS-1001",
+      "price": "₦45,000",
+      "qty": 32,
+      "status": 2
+    },
+    {
+      "id": 2,
+      "product_name": "LED Ring Light Kit",
+      "product_brand": "Prime Gadget Store",
+      "image": "2.png",
+      "category": 0,
+      "stock": 1,
+      "sku": "PGS-1002",
+      "price": "₦28,500",
+      "qty": 18,
+      "status": 2
+    },
+    {
+      "id": 3,
+      "product_name": "Minimal Desk Organizer",
+      "product_brand": "Workspace Essentials",
+      "image": "apple-mac-mini.png",
+      "category": 5,
+      "stock": 1,
+      "sku": "WSE-2040",
+      "price": "₦12,000",
+      "qty": 54,
+      "status": 1
+    },
+    {
+      "id": 4,
+      "product_name": "Canvas Tote Bag",
+      "product_brand": "Style Corner",
+      "image": "google-pixel-6.png",
+      "category": 1,
+      "stock": 1,
+      "sku": "STC-3094",
+      "price": "₦9,500",
+      "qty": 67,
+      "status": 2
+    },
+    {
+      "id": 5,
+      "product_name": "Ceramic Aroma Diffuser",
+      "product_brand": "Home & Glow",
+      "image": "apple-iMac-4k.png",
+      "category": 2,
+      "stock": 0,
+      "sku": "HAG-8801",
+      "price": "₦22,000",
+      "qty": 0,
+      "status": 1
+    },
+    {
+      "id": 6,
+      "product_name": "Leather Card Holder",
+      "product_brand": "Style Corner",
+      "image": "apple-iPhone-13.png",
+      "category": 4,
+      "stock": 1,
+      "sku": "STC-4112",
+      "price": "₦15,500",
+      "qty": 26,
+      "status": 2
+    },
+    {
+      "id": 7,
+      "product_name": "Skincare Starter Pack",
+      "product_brand": "Glow Basket",
+      "image": "samsung-s22.png",
+      "category": 3,
+      "stock": 1,
+      "sku": "GLB-5108",
+      "price": "₦31,000",
+      "qty": 14,
+      "status": 3
+    }
+  ]
+}

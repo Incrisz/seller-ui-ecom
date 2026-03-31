@@ -1,4 +1,4 @@
-(()=>{(e=document.querySelector(".comment-editor"))&&new Quill(e,{modules:{toolbar:".comment-toolbar"},placeholder:"Product Description",theme:"snow"});(e=document.querySelector("#dropzone-basic"))&&new Dropzone(e,{previewTemplate:`<div class="dz-preview dz-file-preview">
+(()=>{(e=document.querySelector(".comment-editor"))&&new Quill(e,{modules:{toolbar:".comment-toolbar"},placeholder:"Describe features, materials, shipping notes, and what buyers should know",theme:"snow"});(e=document.querySelector("#dropzone-basic"))&&new Dropzone(e,{previewTemplate:`<div class="dz-preview dz-file-preview">
 <div class="dz-details">
   <div class="dz-thumbnail">
     <img data-dz-thumbnail>
