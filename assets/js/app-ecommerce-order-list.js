@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const statusMap = {
+  const deliveryStatusMap = {
     1: { title: 'Pending', class: 'bg-label-warning' },
     2: { title: 'Confirmed', class: 'bg-label-info' },
     3: { title: 'On the way', class: 'bg-label-primary' },
     4: { title: 'Delivered', class: 'bg-label-success' }
   };
 
-  const paymentMap = {
+  const paymentStatusMap = {
     1: { title: 'Paid', class: 'text-success' },
     2: { title: 'Pending', class: 'text-warning' },
     3: { title: 'Failed', class: 'text-danger' },
@@ -22,57 +22,50 @@ document.addEventListener('DOMContentLoaded', () => {
   const dataTable = new DataTable(tableElement, {
     ajax: assetsPath + 'json/ecommerce-customer-order.json',
     columns: [
-      { data: 'id' },
-      { data: 'id', orderable: false, render: DataTable.render.select() },
       { data: 'order' },
-      { data: 'date' },
+      { data: 'products' },
       { data: 'customer' },
-      { data: 'payment' },
+      { data: 'seller' },
+      { data: 'amount' },
       { data: 'status' },
       { data: 'method' },
+      { data: 'payment' },
       { data: 'id' }
     ],
     columnDefs: [
       {
-        className: 'control',
-        searchable: false,
-        orderable: false,
-        responsivePriority: 2,
         targets: 0,
-        render: () => ''
-      },
-      {
-        targets: 1,
-        orderable: false,
-        searchable: false,
-        responsivePriority: 3,
-        checkboxes: true,
-        checkboxes: {
-          selectAllRender: '<input type="checkbox" class="form-check-input">'
-        },
-        render: () => '<input type="checkbox" class="dt-checkboxes form-check-input">'
-      },
-      {
-        targets: 2,
-        render: (data, type, row) => `<a href="app-ecommerce-order-details.html"><span>#${row.order}</span></a>`
-      },
-      {
-        targets: 3,
         render: (data, type, row) => {
-          const orderDate = new Date(row.date);
-          const time = row.time.substring(0, 5);
+          if (type !== 'display') {
+            return row.order;
+          }
 
-          return `<span class="text-nowrap">${orderDate.toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric'
-          })}, ${time}</span>`;
+          return `<span class="fw-medium text-heading">#${row.order}</span>`;
         }
       },
       {
-        targets: 4,
+        targets: 1,
+        render: (data, type, row) => {
+          if (type !== 'display') {
+            return row.products;
+          }
+
+          return `
+            <div class="d-flex flex-column">
+              <span class="fw-medium text-heading">${row.products}</span>
+              <small class="text-body-secondary">Marketplace order bundle</small>
+            </div>
+          `;
+        }
+      },
+      {
+        targets: 2,
         responsivePriority: 1,
         render: (data, type, row) => {
+          if (type !== 'display') {
+            return row.customer;
+          }
+
           const avatarMarkup = row.avatar
             ? `<img src="${assetsPath}img/avatars/${row.avatar}" alt="${row.customer}" class="rounded-circle">`
             : `<span class="avatar-initial rounded-circle bg-label-primary">${(row.customer.match(/\b\w/g) || [])
@@ -94,12 +87,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       },
       {
+        targets: 3,
+        render: (data, type, row) => {
+          if (type !== 'display') {
+            return row.seller;
+          }
+
+          return `
+            <div class="d-flex flex-column">
+              <span class="fw-medium text-heading">${row.seller}</span>
+              <small class="text-body-secondary">Product vendor</small>
+            </div>
+          `;
+        }
+      },
+      {
+        targets: 4,
+        render: (data, type, row) => `<span class="fw-medium">${row.amount}</span>`
+      },
+      {
         targets: 5,
         render: (data, type, row) => {
-          const payment = paymentMap[row.payment];
+          const delivery = deliveryStatusMap[row.status];
+
+          if (!delivery) {
+            return data;
+          }
+
+          if (type !== 'display') {
+            return delivery.title;
+          }
+
+          return `<span class="badge rounded-pill px-3 ${delivery.class} text-capitalized">${delivery.title}</span>`;
+        }
+      },
+      {
+        targets: 6,
+        render: (data, type, row) => {
+          if (type !== 'display') {
+            return row.method_label;
+          }
+
+          return `
+            <div class="d-flex align-items-center text-nowrap">
+              <img src="${assetsPath}img/icons/payments/${row.method}.png" alt="${row.method_label}" class="me-2" width="29">
+              <div class="d-flex flex-column">
+                <span class="fw-medium text-heading">${row.method_label}</span>
+                <small>${row.method_number}</small>
+              </div>
+            </div>
+          `;
+        }
+      },
+      {
+        targets: 7,
+        render: (data, type, row) => {
+          const payment = paymentStatusMap[row.payment];
 
           if (!payment) {
             return data;
+          }
+
+          if (type !== 'display') {
+            return payment.title;
           }
 
           return `
@@ -110,33 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       },
       {
-        targets: -3,
-        render: (data, type, row) => {
-          const status = statusMap[row.status];
-
-          if (!status) {
-            return data;
-          }
-
-          return `
-            <span class="badge rounded-pill px-2 ${status.class} text-capitalized">
-              ${status.title}
-            </span>
-          `;
-        }
-      },
-      {
-        targets: -2,
-        render: (data, type, row) => `
-          <div class="d-flex align-items-center text-nowrap">
-            <img src="${assetsPath}img/icons/payments/${row.method}.png" alt="${row.method}" class="me-2" width="29">
-            <span><i class="icon-base ri ri-more-line mt-1"></i>${row.method_number}</span>
-          </div>
-        `
-      },
-      {
-        targets: -1,
-        title: 'Actions',
+        targets: 8,
+        title: 'Options',
         searchable: false,
         orderable: false,
         render: () => `
@@ -145,18 +170,15 @@ document.addEventListener('DOMContentLoaded', () => {
               <i class="icon-base ri ri-more-2-line icon-22px"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-end m-0">
-              <a href="app-ecommerce-order-details.html" class="dropdown-item">View order</a>
+              <a href="javascript:void(0);" class="dropdown-item">View order</a>
+              <a href="javascript:void(0);" class="dropdown-item">Update status</a>
               <a href="javascript:void(0);" class="dropdown-item delete-record">Remove row</a>
             </div>
           </div>
         `
       }
     ],
-    select: {
-      style: 'multi',
-      selector: 'td:nth-child(2)'
-    },
-    order: [3, 'desc'],
+    order: [0, 'desc'],
     layout: {
       topStart: {
         search: {
@@ -184,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     extend: 'print',
                     text: '<span class="d-flex align-items-center"><i class="icon-base ri ri-printer-line me-1"></i>Print</span>',
                     exportOptions: {
-                      columns: [2, 3, 4, 5, 6, 7],
+                      columns: [0, 1, 2, 3, 4, 5, 6, 7],
                       format: {
                         body: bodyFormatter
                       }
@@ -195,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     extend: 'csv',
                     text: '<span class="d-flex align-items-center"><i class="icon-base ri ri-file-text-line me-1"></i>Csv</span>',
                     exportOptions: {
-                      columns: [2, 3, 4, 5, 6, 7],
+                      columns: [0, 1, 2, 3, 4, 5, 6, 7],
                       format: {
                         body: bodyFormatter
                       }
@@ -205,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     extend: 'excel',
                     text: '<span class="d-flex align-items-center"><i class="icon-base ri ri-file-excel-line me-1"></i>Excel</span>',
                     exportOptions: {
-                      columns: [2, 3, 4, 5, 6, 7],
+                      columns: [0, 1, 2, 3, 4, 5, 6, 7],
                       format: {
                         body: bodyFormatter
                       }
@@ -215,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     extend: 'pdf',
                     text: '<span class="d-flex align-items-center"><i class="icon-base ri ri-file-pdf-line me-1"></i>Pdf</span>',
                     exportOptions: {
-                      columns: [2, 3, 4, 5, 6, 7],
+                      columns: [0, 1, 2, 3, 4, 5, 6, 7],
                       format: {
                         body: bodyFormatter
                       }
@@ -225,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     extend: 'copy',
                     text: '<i class="icon-base ri ri-file-copy-line me-1"></i>Copy',
                     exportOptions: {
-                      columns: [2, 3, 4, 5, 6, 7],
+                      columns: [0, 1, 2, 3, 4, 5, 6, 7],
                       format: {
                         body: bodyFormatter
                       }
@@ -250,43 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
         first: '<i class="icon-base ri ri-skip-back-mini-line scaleX-n1-rtl icon-22px"></i>',
         last: '<i class="icon-base ri ri-skip-forward-mini-line scaleX-n1-rtl icon-22px"></i>'
       }
-    },
-    responsive: {
-      details: {
-        display: DataTable.Responsive.display.modal({
-          header: row => `Order ${row.data().order}`
-        }),
-        type: 'column',
-        renderer: (api, rowIdx, columns) => {
-          const rows = columns
-            .map(
-              column =>
-                column.title !== ''
-                  ? `<tr data-dt-row="${column.rowIndex}" data-dt-column="${column.columnIndex}">
-                       <td>${column.title}:</td>
-                       <td>${column.data}</td>
-                     </tr>`
-                  : ''
-            )
-            .join('');
-
-          if (!rows) {
-            return false;
-          }
-
-          const wrapper = document.createElement('div');
-          const table = document.createElement('table');
-          const tbody = document.createElement('tbody');
-
-          wrapper.classList.add('table-responsive');
-          table.classList.add('table');
-          tbody.innerHTML = rows;
-          table.appendChild(tbody);
-          wrapper.appendChild(table);
-
-          return wrapper;
-        }
-      }
     }
   });
 
@@ -296,12 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     dataTable.row(event.target.closest('tr')).remove().draw();
-
-    const modal = document.querySelector('.dtr-bs-modal');
-
-    if (modal && modal.classList.contains('show')) {
-      bootstrap.Modal.getInstance(modal)?.hide();
-    }
   });
 
   setTimeout(() => {

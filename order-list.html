@@ -150,7 +150,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu" >
   
   <div class="app-brand demo ">
-    <a href="app-ecommerce-dashboard.html" class="app-brand-link">
+    <a href="dashboard.html" class="app-brand-link">
       <span class="app-brand-logo demo">
   <span class="text-primary">
     <svg width="32" height="18" viewBox="0 0 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +190,7 @@
   
     <ul class="menu-inner py-1">
       <li class="menu-item">
-        <a href="app-ecommerce-dashboard.html" class="menu-link">
+        <a href="dashboard.html" class="menu-link">
           <i class="menu-icon icon-base ri ri-home-smile-line"></i>
           <div data-i18n="Dashboard">Dashboard</div>
         </a>
@@ -203,34 +203,89 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="app-ecommerce-product-list.html" class="menu-link">
+            <a href="product-list.html" class="menu-link">
               <div data-i18n="All Products">All Products</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="app-ecommerce-product-add.html" class="menu-link">
+            <a href="product-add.html" class="menu-link">
               <div data-i18n="Add New Product">Add New Product</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="category-wise-discount.html" class="menu-link">
+              <div data-i18n="Category-Wise Discount">Category-Wise Discount</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="product-bulk-upload.html" class="menu-link">
+              <div data-i18n="Product Bulk Upload">Product Bulk Upload</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="product-reviews.html" class="menu-link">
+              <div data-i18n="Product Reviews">Product Reviews</div>
             </a>
           </li>
         </ul>
       </li>
 
-      <li class="menu-item active open">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <li class="menu-item active">
+        <a href="order-list.html" class="menu-link">
           <i class="menu-icon icon-base ri ri-file-list-3-line"></i>
           <div data-i18n="Orders">Orders</div>
         </a>
-        <ul class="menu-sub">
-          <li class="menu-item active">
-            <a href="app-ecommerce-order-list.html" class="menu-link">
-              <div data-i18n="All Orders">All Orders</div>
-            </a>
-          </li>
-        </ul>
+      </li>
+
+      <li class="menu-item">
+        <a href="coupon.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-coupon-3-line"></i>
+          <div data-i18n="Coupon">Coupon</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="shop-settings.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-store-2-line"></i>
+          <div data-i18n="Shop Settings">Shop Settings</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="payment-history.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-history-line"></i>
+          <div data-i18n="Payment History">Payment History</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="money-withdraw.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-wallet-3-line"></i>
+          <div data-i18n="Money Withdraw">Money Withdraw</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="commission.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-file-chart-line"></i>
+          <div data-i18n="Commission">Commission</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="conversations.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-chat-3-line"></i>
+          <div data-i18n="Conversations">Conversations</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="support-ticket.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-customer-service-2-line"></i>
+          <div data-i18n="Support Ticket">Support Ticket</div>
+        </a>
       </li>
     </ul>
-    
-  
 </aside>
 
 <div class="menu-mobile-toggler d-xl-none rounded-1">
@@ -363,15 +418,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-calendar-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-calendar.html" class="stretched-link">Calendar</a>
-                <small>Appointments</small>
+                <a href="order-list.html" class="stretched-link">Orders</a>
+                <small>Track fulfillment</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-file-text-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-invoice-list.html" class="stretched-link">Invoice App</a>
-                <small>Manage Accounts</small>
+                <a href="payment-history.html" class="stretched-link">Payments</a>
+                <small>Settlement history</small>
               </div>
             </div>
             <div class="row row-bordered overflow-visible g-0">
@@ -379,15 +434,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-user-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-user-list.html" class="stretched-link">User App</a>
-                <small>Manage Users</small>
+                <a href="product-list.html" class="stretched-link">Products</a>
+                <small>Catalog management</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-computer-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-access-roles.html" class="stretched-link">Role Management</a>
-                <small>Permission</small>
+                <a href="commission.html" class="stretched-link">Commission</a>
+                <small>Rates & deductions</small>
               </div>
             </div>
             <div class="row row-bordered overflow-visible g-0">
@@ -395,15 +450,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-pie-chart-2-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-dashboard.html" class="stretched-link">Dashboard</a>
-                <small>Shop overview</small>
+                <a href="dashboard.html" class="stretched-link">Dashboard</a>
+                <small>Seller overview</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-settings-4-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-product-list.html" class="stretched-link">Products</a>
-                <small>Manage listings</small>
+                <a href="shop-settings.html" class="stretched-link">Shop Settings</a>
+                <small>Store profile</small>
               </div>
             </div>
             <div class="row row-bordered overflow-visible g-0">
@@ -411,15 +466,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-question-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-product-add.html" class="stretched-link">Add Product</a>
-                <small>Create a new listing</small>
+                <a href="support-ticket.html" class="stretched-link">Support</a>
+                <small>Tickets & help</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-tv-2-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-order-list.html" class="stretched-link">Orders</a>
-                <small>Track and fulfill sales</small>
+                <a href="conversations.html" class="stretched-link">Conversations</a>
+                <small>Buyer messages</small>
               </div>
             </div>
           </div>
@@ -629,7 +684,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
           <li>
-            <a class="dropdown-item" href="pages-account-settings-account.html">
+            <a class="dropdown-item" href="shop-settings.html">
               <div class="d-flex align-items-center">
                 <div class="flex-shrink-0 me-2">
                   <div class="avatar avatar-online">
@@ -637,8 +692,8 @@
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <h6 class="mb-0 small">John Doe</h6>
-                  <small class="text-body-secondary">Admin</small>
+                  <h6 class="mb-0 small">Seller Account</h6>
+                  <small class="text-body-secondary">Product Vendor</small>
                 </div>
               </div>
             </a>
@@ -647,10 +702,10 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-profile-user.html"> <i class="icon-base ri ri-user-3-line icon-22px me-3"></i><span class="align-middle">My Profile</span> </a>
+            <a class="dropdown-item" href="dashboard.html"> <i class="icon-base ri ri-home-smile-line icon-22px me-3"></i><span class="align-middle">Dashboard</span> </a>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-account-settings-account.html"> <i class="icon-base ri ri-settings-4-line icon-22px me-3"></i><span class="align-middle">Settings</span> </a>
+            <a class="dropdown-item" href="shop-settings.html"> <i class="icon-base ri ri-settings-4-line icon-22px me-3"></i><span class="align-middle">Settings</span> </a>
           </li>
           <li>
             <a class="dropdown-item" href="pages-account-settings-billing.html">
@@ -665,14 +720,14 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-pricing.html"> <i class="icon-base ri ri-money-dollar-circle-line icon-22px me-3"></i><span class="align-middle">Pricing</span> </a>
+            <a class="dropdown-item" href="payment-history.html"> <i class="icon-base ri ri-history-line icon-22px me-3"></i><span class="align-middle">Payment History</span> </a>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-faq.html"> <i class="icon-base ri ri-question-line icon-22px me-3"></i><span class="align-middle">FAQ</span> </a>
+            <a class="dropdown-item" href="support-ticket.html"> <i class="icon-base ri ri-customer-service-2-line icon-22px me-3"></i><span class="align-middle">Support Ticket</span> </a>
           </li>
           <li>
             <div class="d-grid px-4 pt-2 pb-1">
-              <a class="btn btn-sm btn-danger d-flex" href="auth-login-cover.html" target="_blank">
+              <a class="btn btn-sm btn-danger d-flex" href="login.html">
                 <small class="align-middle">Logout</small>
                 <i class="icon-base ri ri-logout-box-r-line ms-2 icon-16px"></i>
               </a>
@@ -694,103 +749,43 @@
       <div class="content-wrapper">
         <!-- Content -->
         <div class="container-xxl flex-grow-1 container-p-y">
-          
   <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 row-gap-4">
     <div class="d-flex flex-column justify-content-center">
       <h4 class="mb-1">Orders</h4>
-      <p class="mb-0">Review buyer activity, payment state, and delivery progress.</p>
+      <p class="mb-0">Track buyer orders, payment state, fulfillment progress, and delivery status.</p>
     </div>
-    <a href="app-ecommerce-product-list.html" class="btn btn-outline-primary">
-      <i class="icon-base ri ri-shopping-bag-3-line me-2"></i>View Products
-    </a>
-  </div>
-
-  <!-- Order List Widget -->
-
-  <div class="card mb-6">
-    <div class="card-widget-separator-wrapper">
-      <div class="card-body card-widget-separator">
-        <div class="row gy-4 gy-sm-1">
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-4 pb-sm-0">
-              <div>
-                <h4 class="mb-0">18</h4>
-                <p class="mb-0">Pending</p>
-              </div>
-              <div class="avatar me-sm-6">
-                <span class="avatar-initial rounded-3 text-heading">
-                  <i class="icon-base ri ri-calendar-2-line icon-26px"></i>
-                </span>
-              </div>
-            </div>
-            <hr class="d-none d-sm-block d-lg-none me-6" />
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-4 pb-sm-0">
-              <div>
-                <h4 class="mb-0">26</h4>
-                <p class="mb-0">Confirmed</p>
-              </div>
-              <div class="avatar me-lg-6">
-                <span class="avatar-initial rounded-3 text-heading">
-                  <i class="icon-base ri ri-check-double-line icon-26px"></i>
-                </span>
-              </div>
-            </div>
-            <hr class="d-none d-sm-block d-lg-none" />
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start border-end pb-4 pb-sm-0 card-widget-3">
-              <div>
-                <h4 class="mb-0">9</h4>
-                <p class="mb-0">On the way</p>
-              </div>
-              <div class="avatar me-sm-6">
-                <span class="avatar-initial rounded-3 text-heading">
-                  <i class="icon-base ri ri-wallet-3-line icon-26px"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h4 class="mb-0">142</h4>
-                <p class="mb-0">Delivered</p>
-              </div>
-              <div class="avatar">
-                <span class="avatar-initial rounded-3 text-heading">
-                  <i class="icon-base ri ri-error-warning-line icon-26px"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="d-flex gap-3">
+      <a href="payment-history.html" class="btn btn-outline-primary">Payment History</a>
+      <button class="btn btn-primary">Export Orders</button>
     </div>
   </div>
 
-  <!-- Order List Table -->
+  <div class="row g-6 mb-6">
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">New Orders</p><h4 class="mb-1">34</h4><p class="mb-0 text-primary">Awaiting confirmation</p></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">On Delivery</p><h4 class="mb-1">19</h4><p class="mb-0 text-warning">Courier in transit</p></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">Delivered</p><h4 class="mb-1">83</h4><p class="mb-0 text-success">Completed this month</p></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">Cancelled</p><h4 class="mb-1">6</h4><p class="mb-0 text-danger">Needs follow-up</p></div></div></div>
+  </div>
+
   <div class="card">
     <div class="card-datatable table-responsive">
       <table class="datatables-order table">
         <thead>
           <tr>
-            <th></th>
-            <th></th>
-            <th>order #</th>
-            <th>date</th>
-            <th>customer</th>
-            <th>payment</th>
-            <th>delivery status</th>
-            <th>method</th>
-            <th>actions</th>
+            <th>Order Code</th>
+            <th>Products</th>
+            <th>Customer</th>
+            <th>Seller</th>
+            <th>Amount</th>
+            <th>Delivery Status</th>
+            <th>Payment Method</th>
+            <th>Payment Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
       </table>
     </div>
   </div>
-
         </div>
         <!-- / Content -->
 
@@ -806,13 +801,12 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        Seller UI product-vendor workspace
+        , Seller UI workspace
       </div>
       <div class="d-none d-lg-inline-block">
-        <a href="app-ecommerce-dashboard.html" class="footer-link me-4">Dashboard</a>
-        <a href="app-ecommerce-product-list.html" class="footer-link me-4">Products</a>
-        <a href="app-ecommerce-order-list.html" class="footer-link me-4">Orders</a>
-        <a href="app-ecommerce-product-add.html" class="footer-link d-none d-sm-inline-block">Add Product</a>
+        <a href="dashboard.html" class="footer-link me-4">Dashboard</a>
+        <a href="product-list.html" class="footer-link me-4">Products</a>
+        <a href="shop-settings.html" class="footer-link">Shop Settings</a>
       </div>
     </div>
   </div>
@@ -840,10 +834,7 @@
 <!-- / Layout wrapper -->
 
     
-
-    
-
-    <!-- Core JS -->
+      <!-- Core JS -->
     
       <!-- build:js assets/vendor/js/theme.js  -->
       
@@ -876,18 +867,17 @@
     
     <!-- endbuild -->
 
-    <!-- Vendors JS -->
+        <!-- Vendors JS -->
+    <script src="assets/vendor/libs/moment/moment.js"></script>
     <script src="assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
 
     <!-- Main JS -->
-    
-      <script src="assets/js/main.js"></script>
-    
+    <script src="assets/js/main.js"></script>
 
     <!-- Page JS -->
     <script src="assets/js/app-ecommerce-order-list.js"></script>
-    
   </body>
 </html>
+
 
   <!-- beautify ignore:end -->

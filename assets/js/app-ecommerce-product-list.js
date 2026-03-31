@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 text: '<i class="icon-base ri ri-add-line me-0 me-sm-1 icon-16px"></i><span class="d-none d-sm-inline-block">Add New Product</span>',
                 className: 'add-new btn btn-primary',
                 action: () => {
-                  window.location.href = 'app-ecommerce-product-add.html';
+                  window.location.href = 'product-add.html';
                 }
               }
             ]

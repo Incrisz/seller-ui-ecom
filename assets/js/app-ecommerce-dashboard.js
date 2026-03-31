@@ -1,1 +1,205 @@
-(()=>{let o,e,r;r=isDarkStyle?(e="#474360","dark"):(e="#F0F2F8","light"),config.colors.cardColor,o=config.colors.textMuted,config.colors.headingColor,config.colors.bodyColor,config.colors.primary,config.colors.success,config.colors.warning,config.colors.primary;(i=document.querySelector("#swiper-weekly-sales-with-bg"))&&new Swiper(i,{loop:!0,autoplay:{delay:2500,disableOnInteraction:!1},pagination:{clickable:!0,el:".swiper-pagination"}});var i=document.querySelector("#saleThisMonth"),t={chart:{height:100,type:"line",parentHeightOffset:0,toolbar:{show:!1},dropShadow:{top:14,blur:4,left:0,enabled:!0,opacity:.12,color:config.colors.primary}},tooltip:{enabled:!1},grid:{xaxis:{lines:{show:!1}},yaxis:{lines:{show:!1}},padding:{top:-12,left:-2,right:8,bottom:-10}},colors:[config.colors.primary],stroke:{width:5,lineCap:"round"},series:[{data:[200,200,500,500,300,300,100,100,450,450,650,650]}],xaxis:{labels:{show:!1},axisTicks:{show:!1},axisBorder:{show:!1}},yaxis:{min:0,labels:{show:!1}},responsive:[{breakpoint:1441,options:{chart:{height:125}}},{breakpoint:1025,options:{chart:{height:100}}}]};null!==i&&new ApexCharts(i,t).render(),(i=document.querySelectorAll(".chart-progress"))&&i.forEach(function(o){var e=config.colors[o.dataset.color],r=o.dataset.series,e={chart:{height:90,width:90,type:"radialBar",sparkline:{enabled:!0}},plotOptions:{radialBar:{hollow:{size:"52%",image:o.dataset.icon,imageWidth:24,imageHeight:24,imageClipped:!1},dataLabels:{name:{show:!1},value:{show:!1}},track:{background:config.colors_label.secondary}}},states:{hover:{filter:{type:"none"}},active:{filter:{type:"none"}}},stroke:{lineCap:"round"},colors:[e],grid:{padding:{bottom:0}},series:[r],labels:["Progress"],responsive:[{breakpoint:1441,options:{chart:{height:103}}},{breakpoint:1400,options:{chart:{height:100}}},{breakpoint:1380,options:{chart:{height:95}}},{breakpoint:1332,options:{chart:{height:85}}},{breakpoint:1265,options:{chart:{height:75}}},{breakpoint:1025,options:{chart:{height:90}}}]};new ApexCharts(o,e).render()}),(t=document.querySelector("#swiper-marketing-sales"))&&new Swiper(t,{loop:!0,autoplay:{delay:2500,disableOnInteraction:!1},pagination:{clickable:!0,el:".swiper-pagination"}}),i=document.querySelector("#liveVisitors"),t={chart:{height:150,parentHeightOffset:0,type:"bar",toolbar:{show:!1}},plotOptions:{bar:{borderRadius:6,columnWidth:"43%",endingShape:"rounded",startingShape:"rounded"}},colors:[config.colors.success],grid:{padding:{top:-4,left:-8,right:-2,bottom:-7},yaxis:{lines:{show:!1}}},dataLabels:{enabled:!1},series:[{data:[70,80,92,49,19,49,23,82,65,23,49,65,65]}],legend:{show:!1},xaxis:{labels:{show:!1},axisTicks:{show:!1},axisBorder:{show:!1}},yaxis:{labels:{show:!1}},responsive:[{breakpoint:1441,options:{plotOptions:{bar:{borderRadius:10}}}},{breakpoint:1288,options:{plotOptions:{bar:{borderRadius:8}}}},{breakpoint:1200,options:{plotOptions:{bar:{borderRadius:10}}}},{breakpoint:1025,options:{plotOptions:{bar:{borderRadius:8}}}},{breakpoint:992,options:{plotOptions:{bar:{borderRadius:14}}}},{breakpoint:645,options:{plotOptions:{bar:{borderRadius:10}}}},{breakpoint:474,options:{plotOptions:{bar:{borderRadius:7}}}},{breakpoint:383,options:{plotOptions:{bar:{borderRadius:6}}}}]},null!==i&&new ApexCharts(i,t).render(),i=document.querySelector("#visitsByDayChart"),t={chart:{height:314,type:"bar",parentHeightOffset:0,toolbar:{show:!1}},plotOptions:{bar:{borderRadius:8,distributed:!0,columnWidth:"55%",endingShape:"rounded",startingShape:"rounded"}},series:[{data:[38,55,48,65,80,38,48]}],tooltip:{enabled:!1},legend:{show:!1},dataLabels:{enabled:!1},colors:[config.colors_label.primary,config.colors.primary,config.colors_label.primary,config.colors.primary,config.colors.primary,config.colors_label.primary,config.colors_label.primary],grid:{show:!1,padding:{top:-15,left:-7,right:-4}},states:{hover:{filter:{type:"none"}},active:{filter:{type:"none"}}},xaxis:{axisTicks:{show:!1},axisBorder:{show:!1},categories:["S","M","T","W","T","F","S"],labels:{style:{colors:o,fontSize:"13px",fontFamily:"Inter"}}},yaxis:{show:!1},responsive:[{breakpoint:1025,options:{chart:{height:210}}}]},null!==i&&new ApexCharts(i,t).render()})();
+(() => {
+  const textMuted = config.colors.textMuted;
+  const headingColor = config.colors.headingColor;
+  const borderColor = config.colors.borderColor;
+  const fontFamily = config.fontFamily || 'Inter';
+  const isDark = isDarkStyle;
+
+  const renderChart = (selector, options) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      new ApexCharts(element, options).render();
+    }
+  };
+
+  renderChart('#salesStatChart', {
+    chart: {
+      height: 250,
+      type: 'area',
+      parentHeightOffset: 0,
+      toolbar: { show: false }
+    },
+    series: [
+      {
+        name: 'Sales',
+        data: [620000, 780000, 710000, 940000, 1180000, 1320000]
+      }
+    ],
+    colors: [config.colors.primary],
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: isDark ? 'dark' : 'light',
+        shadeIntensity: 0.4,
+        opacityFrom: 0.35,
+        opacityTo: 0.08,
+        stops: [0, 90, 100]
+      }
+    },
+    stroke: {
+      curve: 'smooth',
+      width: 3
+    },
+    dataLabels: { enabled: false },
+    grid: {
+      borderColor,
+      strokeDashArray: 6,
+      padding: {
+        left: 8,
+        right: 8,
+        top: -12,
+        bottom: -8
+      }
+    },
+    xaxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+      labels: {
+        style: {
+          colors: textMuted,
+          fontFamily
+        }
+      }
+    },
+    yaxis: {
+      labels: {
+        formatter: value => `₦${Math.round(value / 1000)}k`,
+        style: {
+          colors: textMuted,
+          fontFamily
+        }
+      }
+    },
+    legend: { show: false },
+    tooltip: {
+      y: {
+        formatter: value => `₦${value.toLocaleString()}`
+      }
+    }
+  });
+
+  renderChart('#categoryWiseChart', {
+    chart: {
+      height: 220,
+      type: 'bar',
+      parentHeightOffset: 0,
+      toolbar: { show: false }
+    },
+    series: [
+      {
+        name: 'Products',
+        data: [42, 31, 22, 18, 15]
+      }
+    ],
+    colors: [config.colors.primary],
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        borderRadius: 6,
+        barHeight: '48%'
+      }
+    },
+    dataLabels: { enabled: false },
+    grid: {
+      borderColor,
+      strokeDashArray: 6,
+      xaxis: { lines: { show: true } },
+      yaxis: { lines: { show: false } },
+      padding: {
+        top: -10,
+        right: 8,
+        left: 4,
+        bottom: -10
+      }
+    },
+    xaxis: {
+      categories: ['Electronics', 'Fashion', 'Home', 'Beauty', 'Office'],
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+      labels: {
+        style: {
+          colors: textMuted,
+          fontFamily
+        }
+      }
+    },
+    yaxis: {
+      labels: {
+        style: {
+          colors: textMuted,
+          fontFamily
+        }
+      }
+    },
+    legend: { show: false },
+    tooltip: {
+      y: {
+        formatter: value => `${value} products`
+      }
+    }
+  });
+
+  renderChart('#ordersBreakdownChart', {
+    chart: {
+      height: 255,
+      type: 'donut'
+    },
+    series: [34, 6, 19, 83],
+    labels: ['New Order', 'Cancelled', 'On Delivery', 'Delivered'],
+    colors: [
+      config.colors.primary,
+      config.colors.danger,
+      config.colors.warning,
+      config.colors.success
+    ],
+    stroke: {
+      width: 6,
+      colors: [config.colors.cardColor]
+    },
+    dataLabels: { enabled: false },
+    legend: {
+      position: 'bottom',
+      horizontalAlign: 'center',
+      fontFamily,
+      labels: {
+        colors: textMuted
+      }
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: '72%',
+          labels: {
+            show: true,
+            name: {
+              show: true,
+              offsetY: 18,
+              fontFamily,
+              color: textMuted
+            },
+            value: {
+              show: true,
+              offsetY: -12,
+              fontFamily,
+              color: headingColor,
+              formatter: value => `${Math.round(value)}`
+            },
+            total: {
+              show: true,
+              label: 'Orders',
+              fontFamily,
+              color: textMuted,
+              formatter: () => '142'
+            }
+          }
+        }
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: value => `${value} orders`
+      }
+    }
+  });
+})();

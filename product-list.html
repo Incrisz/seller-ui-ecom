@@ -48,7 +48,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Add Product | Seller UI</title>
+    <title>Seller Products | Seller UI</title>
 
     
       <meta name="description" content="Materialize is the best bootstrap 5 dashboard for responsive web apps. Streamline your app development process with ease." />
@@ -110,13 +110,10 @@
     
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="assets/vendor/libs/quill/typography.css" />
-  <link rel="stylesheet" href="assets/vendor/libs/quill/katex.css" />
-  <link rel="stylesheet" href="assets/vendor/libs/quill/editor.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
   <link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
-  <link rel="stylesheet" href="assets/vendor/libs/dropzone/dropzone.css" />
-  <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
-  <link rel="stylesheet" href="assets/vendor/libs/tagify/tagify.css" />
 
     <!-- Page CSS -->
     
@@ -154,7 +151,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu" >
   
   <div class="app-brand demo ">
-    <a href="app-ecommerce-dashboard.html" class="app-brand-link">
+    <a href="dashboard.html" class="app-brand-link">
       <span class="app-brand-logo demo">
   <span class="text-primary">
     <svg width="32" height="18" viewBox="0 0 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -194,7 +191,7 @@
   
     <ul class="menu-inner py-1">
       <li class="menu-item">
-        <a href="app-ecommerce-dashboard.html" class="menu-link">
+        <a href="dashboard.html" class="menu-link">
           <i class="menu-icon icon-base ri ri-home-smile-line"></i>
           <div data-i18n="Dashboard">Dashboard</div>
         </a>
@@ -206,35 +203,90 @@
           <div data-i18n="Products">Products</div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="app-ecommerce-product-list.html" class="menu-link">
+          <li class="menu-item active">
+            <a href="product-list.html" class="menu-link">
               <div data-i18n="All Products">All Products</div>
             </a>
           </li>
-          <li class="menu-item active">
-            <a href="app-ecommerce-product-add.html" class="menu-link">
+          <li class="menu-item">
+            <a href="product-add.html" class="menu-link">
               <div data-i18n="Add New Product">Add New Product</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="category-wise-discount.html" class="menu-link">
+              <div data-i18n="Category-Wise Discount">Category-Wise Discount</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="product-bulk-upload.html" class="menu-link">
+              <div data-i18n="Product Bulk Upload">Product Bulk Upload</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="product-reviews.html" class="menu-link">
+              <div data-i18n="Product Reviews">Product Reviews</div>
             </a>
           </li>
         </ul>
       </li>
 
       <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <a href="order-list.html" class="menu-link">
           <i class="menu-icon icon-base ri ri-file-list-3-line"></i>
           <div data-i18n="Orders">Orders</div>
         </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="app-ecommerce-order-list.html" class="menu-link">
-              <div data-i18n="All Orders">All Orders</div>
-            </a>
-          </li>
-        </ul>
+      </li>
+
+      <li class="menu-item">
+        <a href="coupon.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-coupon-3-line"></i>
+          <div data-i18n="Coupon">Coupon</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="shop-settings.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-store-2-line"></i>
+          <div data-i18n="Shop Settings">Shop Settings</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="payment-history.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-history-line"></i>
+          <div data-i18n="Payment History">Payment History</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="money-withdraw.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-wallet-3-line"></i>
+          <div data-i18n="Money Withdraw">Money Withdraw</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="commission.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-file-chart-line"></i>
+          <div data-i18n="Commission">Commission</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="conversations.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-chat-3-line"></i>
+          <div data-i18n="Conversations">Conversations</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="support-ticket.html" class="menu-link">
+          <i class="menu-icon icon-base ri ri-customer-service-2-line"></i>
+          <div data-i18n="Support Ticket">Support Ticket</div>
+        </a>
       </li>
     </ul>
-    
-  
 </aside>
 
 <div class="menu-mobile-toggler d-xl-none rounded-1">
@@ -367,15 +419,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-calendar-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-calendar.html" class="stretched-link">Calendar</a>
-                <small>Appointments</small>
+                <a href="order-list.html" class="stretched-link">Orders</a>
+                <small>Track fulfillment</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-file-text-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-invoice-list.html" class="stretched-link">Invoice App</a>
-                <small>Manage Accounts</small>
+                <a href="payment-history.html" class="stretched-link">Payments</a>
+                <small>Settlement history</small>
               </div>
             </div>
             <div class="row row-bordered overflow-visible g-0">
@@ -383,15 +435,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-user-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-user-list.html" class="stretched-link">User App</a>
-                <small>Manage Users</small>
+                <a href="product-list.html" class="stretched-link">Products</a>
+                <small>Catalog management</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-computer-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-access-roles.html" class="stretched-link">Role Management</a>
-                <small>Permission</small>
+                <a href="commission.html" class="stretched-link">Commission</a>
+                <small>Rates & deductions</small>
               </div>
             </div>
             <div class="row row-bordered overflow-visible g-0">
@@ -399,15 +451,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-pie-chart-2-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-dashboard.html" class="stretched-link">Dashboard</a>
-                <small>Shop overview</small>
+                <a href="dashboard.html" class="stretched-link">Dashboard</a>
+                <small>Seller overview</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-settings-4-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-product-list.html" class="stretched-link">Products</a>
-                <small>Manage listings</small>
+                <a href="shop-settings.html" class="stretched-link">Shop Settings</a>
+                <small>Store profile</small>
               </div>
             </div>
             <div class="row row-bordered overflow-visible g-0">
@@ -415,15 +467,15 @@
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-question-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-product-add.html" class="stretched-link">Add Product</a>
-                <small>Create a new listing</small>
+                <a href="support-ticket.html" class="stretched-link">Support</a>
+                <small>Tickets & help</small>
               </div>
               <div class="dropdown-shortcuts-item col">
                 <span class="dropdown-shortcuts-icon rounded-circle mb-3">
                   <i class="icon-base ri ri-tv-2-line icon-26px text-heading"></i>
                 </span>
-                <a href="app-ecommerce-order-list.html" class="stretched-link">Orders</a>
-                <small>Track and fulfill sales</small>
+                <a href="conversations.html" class="stretched-link">Conversations</a>
+                <small>Buyer messages</small>
               </div>
             </div>
           </div>
@@ -633,7 +685,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
           <li>
-            <a class="dropdown-item" href="pages-account-settings-account.html">
+            <a class="dropdown-item" href="shop-settings.html">
               <div class="d-flex align-items-center">
                 <div class="flex-shrink-0 me-2">
                   <div class="avatar avatar-online">
@@ -641,8 +693,8 @@
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <h6 class="mb-0 small">John Doe</h6>
-                  <small class="text-body-secondary">Admin</small>
+                  <h6 class="mb-0 small">Seller Account</h6>
+                  <small class="text-body-secondary">Product Vendor</small>
                 </div>
               </div>
             </a>
@@ -651,10 +703,10 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-profile-user.html"> <i class="icon-base ri ri-user-3-line icon-22px me-3"></i><span class="align-middle">My Profile</span> </a>
+            <a class="dropdown-item" href="dashboard.html"> <i class="icon-base ri ri-home-smile-line icon-22px me-3"></i><span class="align-middle">Dashboard</span> </a>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-account-settings-account.html"> <i class="icon-base ri ri-settings-4-line icon-22px me-3"></i><span class="align-middle">Settings</span> </a>
+            <a class="dropdown-item" href="shop-settings.html"> <i class="icon-base ri ri-settings-4-line icon-22px me-3"></i><span class="align-middle">Settings</span> </a>
           </li>
           <li>
             <a class="dropdown-item" href="pages-account-settings-billing.html">
@@ -669,14 +721,14 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-pricing.html"> <i class="icon-base ri ri-money-dollar-circle-line icon-22px me-3"></i><span class="align-middle">Pricing</span> </a>
+            <a class="dropdown-item" href="payment-history.html"> <i class="icon-base ri ri-history-line icon-22px me-3"></i><span class="align-middle">Payment History</span> </a>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-faq.html"> <i class="icon-base ri ri-question-line icon-22px me-3"></i><span class="align-middle">FAQ</span> </a>
+            <a class="dropdown-item" href="support-ticket.html"> <i class="icon-base ri ri-customer-service-2-line icon-22px me-3"></i><span class="align-middle">Support Ticket</span> </a>
           </li>
           <li>
             <div class="d-grid px-4 pt-2 pb-1">
-              <a class="btn btn-sm btn-danger d-flex" href="auth-login-cover.html" target="_blank">
+              <a class="btn btn-sm btn-danger d-flex" href="login.html">
                 <small class="align-middle">Logout</small>
                 <i class="icon-base ri ri-logout-box-r-line ms-2 icon-16px"></i>
               </a>
@@ -698,450 +750,42 @@
       <div class="content-wrapper">
         <!-- Content -->
         <div class="container-xxl flex-grow-1 container-p-y">
-          
-  <div class="app-ecommerce">
-    <!-- Add Product -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 row-gap-4">
-      <div class="d-flex flex-column justify-content-center">
-        <h4 class="mb-1">Add New Product</h4>
-        <p class="mb-0">Create a new product listing for your seller storefront.</p>
-      </div>
-      <div class="d-flex align-content-center flex-wrap gap-4">
-        <a href="app-ecommerce-product-list.html" class="btn btn-outline-secondary">Cancel</a>
-        <button class="btn btn-outline-primary">Save draft</button>
-        <button type="submit" class="btn btn-primary">Publish listing</button>
-      </div>
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 row-gap-4">
+    <div class="d-flex flex-column justify-content-center">
+      <h4 class="mb-1">All Products</h4>
+      <p class="mb-0">Manage published, draft, and archived products for the product vendor workspace.</p>
     </div>
+    <div class="d-flex gap-3">
+      <a href="category-wise-discount.html" class="btn btn-outline-primary">Category Discounts</a>
+      <a href="product-add.html" class="btn btn-primary">Add New Product</a>
+    </div>
+  </div>
 
-    <div class="row">
-      <!-- First column-->
-      <div class="col-12 col-lg-8">
-        <!-- Product Information -->
-        <div class="card mb-6">
-          <div class="card-header">
-            <h5 class="card-tile mb-0">Product Details</h5>
-          </div>
-          <div class="card-body">
-            <div class="form-floating form-floating-outline mb-5">
-              <input type="text" class="form-control" id="ecommerce-product-name" placeholder="Product title" name="productTitle" aria-label="Product title" />
-              <label for="ecommerce-product-name">Product name</label>
-            </div>
+  <div class="row g-6 mb-6">
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">Published</p><h4 class="mb-1">96</h4><p class="mb-0 text-success">Live in storefront</p></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">Draft</p><h4 class="mb-1">18</h4><p class="mb-0 text-body-secondary">Awaiting review</p></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">Low Stock</p><h4 class="mb-1">7</h4><p class="mb-0 text-warning">Restock this week</p></div></div></div>
+    <div class="col-sm-6 col-xl-3"><div class="card h-100"><div class="card-body"><p class="mb-1 text-body-secondary">Archived</p><h4 class="mb-1">14</h4><p class="mb-0 text-body-secondary">Not visible to buyers</p></div></div></div>
+  </div>
 
-            <div class="row gx-5 mb-5">
-              <div class="col">
-                <div class="form-floating form-floating-outline">
-                  <input type="number" class="form-control" id="ecommerce-product-sku" placeholder="00000" name="productSku" aria-label="Product SKU" />
-                  <label for="ecommerce-product-sku">SKU</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-floating form-floating-outline">
-                  <input type="text" class="form-control" id="ecommerce-product-barcode" placeholder="0123-4567" name="productBarcode" aria-label="Product barcode" />
-                  <label for="ecommerce-product-name">Barcode</label>
-                </div>
-              </div>
-            </div>
-            <!-- Comment -->
-            <div>
-              <p class="mb-1">Product description</p>
-              <div class="form-control p-0 pt-1">
-                <div class="comment-toolbar border-0 border-bottom">
-                  <div class="d-flex justify-content-start">
-                    <span class="ql-formats me-0">
-                      <button class="ql-bold"></button>
-                      <button class="ql-italic"></button>
-                      <button class="ql-underline"></button>
-                      <button class="ql-list" value="ordered"></button>
-                      <button class="ql-list" value="bullet"></button>
-                      <button class="ql-link"></button>
-                      <button class="ql-image"></button>
-                    </span>
-                  </div>
-                </div>
-                <div class="comment-editor border-0 pb-1" id="ecommerce-category-description"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Product Information -->
-        <!-- Media -->
-        <div class="card mb-6">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0 card-title">Product Media</h5>
-            <a href="javascript:void(0);" class="fw-medium">Upload cover image</a>
-          </div>
-          <div class="card-body">
-            <form action="https://demos.pixinvent.com/upload" class="dropzone needsclick" id="dropzone-basic">
-              <div class="dz-message needsclick my-12">
-                <div class="d-flex justify-content-center">
-                  <div class="avatar">
-                    <span class="avatar-initial rounded-3 bg-label-secondary">
-                      <i class="icon-base ri ri-upload-2-line icon-24px"></i>
-                    </span>
-                  </div>
-                </div>
-                <p class="h4 needsclick my-2">Drag and drop your product image here</p>
-                <small class="note text-body-secondary d-block fs-6 my-2">or</small>
-                <span class="needsclick btn btn-sm btn-outline-primary" id="btnBrowse">Browse files</span>
-              </div>
-              <div class="fallback">
-                <input name="file" type="file" />
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- /Media -->
-        <!-- Variants -->
-        <div class="card mb-6">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Product Options</h5>
-          </div>
-          <div class="card-body">
-            <form class="form-repeater">
-              <div data-repeater-list="group-a">
-                <div data-repeater-item>
-                  <div class="row gx-5">
-                    <div class="mb-6 col-sm-4">
-                      <div class="form-floating form-floating-outline">
-                        <select id="select2Basic" class="form-select form-select-sm" data-placeholder="Option" data-allow-clear="true">
-                          <option value="size" selected>Size</option>
-                          <option value="color">Color</option>
-                          <option value="weight">Weight</option>
-                          <option value="smell">Smell</option>
-                        </select>
-                        <label for="select2Basic">Option</label>
-                      </div>
-                    </div>
-                    <div class="mb-6 col-sm-8">
-                      <div class="form-floating form-floating-outline">
-                        <input type="text" id="form-repeater-1-2" class="form-control" placeholder="Enter size" />
-                        <label for="form-repeater-1-2">Value</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <button class="btn btn-primary" data-repeater-create>
-                  <i class="icon-base ri ri-add-line icon-16px me-2"></i>
-                  Add another option
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- /Variants -->
-        <!-- Inventory -->
-        <div class="card mb-6">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Stock & Delivery</h5>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <!-- Navigation -->
-              <div class="col-12 col-md-4 mx-auto card-separator">
-                <div class="nav-align-left d-flex justify-content-between flex-column mb-4 mb-md-0 pe-md-3">
-                  <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#restock">
-                        <i class="icon-base ri ri-add-line icon-sm me-2"></i>
-                        <span class="align-middle">Stock</span>
-                      </button>
-                    </li>
-                    <li class="nav-item">
-                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shipping">
-                        <i class="icon-base ri ri-car-line icon-sm me-2"></i>
-                        <span class="align-middle">Shipping</span>
-                      </button>
-                    </li>
-                    <li class="nav-item">
-                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#global-delivery">
-                        <i class="icon-base ri ri-global-line icon-sm me-2"></i>
-                        <span class="align-middle">Delivery Zones</span>
-                      </button>
-                    </li>
-                    <li class="nav-item">
-                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#attributes">
-                        <i class="icon-base ri ri-link-m icon-sm me-2"></i>
-                        <span class="align-middle">Packaging</span>
-                      </button>
-                    </li>
-                    <li class="nav-item">
-                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#advanced">
-                        <i class="icon-base ri ri-lock-unlock-line icon-sm me-2"></i>
-                        <span class="align-middle">Identifiers</span>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- /Navigation -->
-              <!-- Options -->
-              <div class="col-12 col-md-8 pt-6 pt-md-0">
-                <div class="tab-content p-0 pe-xl-0 ps-md-4">
-                  <!-- Restock Tab -->
-                  <div class="tab-pane fade show active" id="restock" role="tabpanel">
-                    <h6 class="text-body">Stock setup</h6>
-                    <div class="row mb-4 g-4">
-                      <div class="col-12 col-sm-8 col-lg-12 col-xxl-8">
-                        <div class="form-floating form-floating-outline">
-                          <input type="number" class="form-control form-control-sm" id="ecommerce-product-stock" placeholder="Quantity" name="quantity" aria-label="Quantity" />
-                          <label for="ecommerce-product-stock">Available quantity</label>
-                        </div>
-                      </div>
-                      <div class="col-6 col-sm-4 col-lg-6 col-xxl-4">
-                        <button class="btn btn-primary"><i class="icon-base ri ri-check-line icon-16px me-2"></i>Update</button>
-                      </div>
-                    </div>
-                    <div>
-                      <h6 class="mb-2 fw-normal">Current stock: <span class="fw-medium">54</span></h6>
-                      <h6 class="mb-2 fw-normal">Units in transit: <span class="fw-medium">18</span></h6>
-                      <h6 class="mb-2 fw-normal">Last stock update: <span class="fw-medium">30th March, 2026</span></h6>
-                      <h6 class="mb-0 fw-normal">Total units sold: <span class="fw-medium">243</span></h6>
-                    </div>
-                  </div>
-                  <!-- Shipping Tab -->
-                  <div class="tab-pane fade" id="shipping" role="tabpanel">
-                    <h6 class="mb-3 text-body">Shipping setup</h6>
-                    <div>
-                      <div class="form-check mb-4">
-                        <input class="form-check-input" type="radio" name="shippingType" id="seller" />
-                        <label class="form-check-label d-flex flex-column gap-1" for="seller">
-                          <span class="h6 mb-0">Fulfilled by seller</span>
-                          <small>You handle dispatch directly from your shop or pickup location.</small>
-                        </label>
-                      </div>
-                      <div class="form-check mb-6">
-                        <input class="form-check-input" type="radio" name="shippingType" id="companyName" checked />
-                        <label class="form-check-label d-flex flex-column gap-1" for="companyName">
-                          <span class="h6 mb-0">Fulfilled by platform &nbsp;<span class="badge rounded-pill rounded-2 badge-warning bg-label-warning fs-tiny py-1">RECOMMENDED</span></span>
-                          <small>Use the platform delivery network to simplify rider assignment and tracking.</small>
-                        </label>
-                      </div>
-                      <p class="mb-0">Review your <a href="javascript:void(0);">delivery terms</a> before publishing.</p>
-                    </div>
-                  </div>
-                  <!-- Global Delivery Tab -->
-                  <div class="tab-pane fade" id="global-delivery" role="tabpanel">
-                    <h6 class="mb-3 text-body">Delivery zones</h6>
-                    <!-- Worldwide delivery -->
-                    <div class="form-check mb-4">
-                      <input class="form-check-input" type="radio" name="globalDel" id="worldwide" />
-                      <label class="form-check-label d-flex flex-column gap-1" for="worldwide">
-                        <span class="h6 mb-0">Nationwide delivery</span>
-                        <small>Best when you use platform-managed logistics for wider coverage.</small>
-                      </label>
-                    </div>
-                    <!-- Global delivery -->
-                    <div class="form-check mb-4">
-                      <input class="form-check-input" type="radio" name="globalDel" checked />
-                      <label class="form-check-label w-75 pe-12 mb-3" for="country-selected">
-                        <span class="h6">Selected states or campuses</span>
-                      </label>
-                      <div class="form-floating form-floating-outline">
-                        <input type="text" class="form-control form-control-sm" placeholder="Type location" id="country-selected" />
-                        <label for="ecommerce-product-name">Coverage</label>
-                      </div>
-                    </div>
-                    <!-- Local delivery -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="globalDel" id="local" />
-                      <label class="form-check-label d-flex flex-column gap-1" for="local">
-                        <span class="h6 mb-0">Local delivery only</span>
-                        <small>Restrict sales to your immediate service area or pickup zone.</small>
-                      </label>
-                    </div>
-                  </div>
-                  <!-- Attributes Tab -->
-                  <div class="tab-pane fade" id="attributes" role="tabpanel">
-                    <h6 class="mb-2 text-body">Packaging notes</h6>
-                    <div>
-                      <!-- Fragile Product -->
-                      <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox" value="fragile" id="fragile" />
-                        <label class="form-check-label" for="fragile">
-                          <span>Fragile item</span>
-                        </label>
-                      </div>
-                      <!-- Biodegradable -->
-                      <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox" value="biodegradable" id="biodegradable" />
-                        <label class="form-check-label" for="biodegradable">
-                          <span>Eco packaging</span>
-                        </label>
-                      </div>
-                      <!-- Frozen Product -->
-                      <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox" id="frozen" value="frozen" checked />
-                        <label class="form-check-label w-75 pe-12 mb-3" for="frozen">
-                          <span class="mb-1">Temperature-sensitive</span>
-                        </label>
-                        <div class="form-floating form-floating-outline">
-                          <input type="number" class="form-control form-control-sm" placeholder="In Celsius" id="temp" />
-                          <label for="temp">Max. allowed temperature</label>
-                        </div>
-                      </div>
-                      <!-- Exp Date -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="expDate" id="expDate" checked />
-                        <label class="form-check-label w-75 pe-12 mb-3" for="expDate">
-                          <span class="mb-1">Product expiry date</span>
-                        </label>
-                        <div class="form-floating form-floating-outline">
-                          <input type="date" class="product-date form-control" id="flatpickr-date" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Attributes Tab -->
-                  <!-- Advanced Tab -->
-                  <div class="tab-pane fade" id="advanced" role="tabpanel">
-                    <h6 class="mb-3 text-body">Listing identifiers</h6>
-                    <div class="row">
-                      <!-- Product Id Type -->
-                      <div class="col">
-                        <h6 class="mb-2">Product ID Type</h6>
-                        <div class="form-floating form-floating-outline">
-                          <select id="product-id" class="form-select form-select-sm" data-placeholder="ISBN" data-allow-clear="true">
-                            <option value="">ISBN</option>
-                            <option value="ISBN">ISBN</option>
-                            <option value="UPC">UPC</option>
-                            <option value="EAN">EAN</option>
-                            <option value="JAN">JAN</option>
-                          </select>
-                          <label for="product-id">Id</label>
-                        </div>
-                      </div>
-                      <!-- Product Id -->
-                      <div class="col">
-                        <h6 class="mb-2">Product ID</h6>
-                        <div class="form-floating form-floating-outline">
-                          <input type="number" id="product-id-1" class="form-control form-control-sm" placeholder="ISBN Number" />
-                          <label for="product-id-1">Id Number</label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Advanced Tab -->
-                </div>
-              </div>
-              <!-- /Options-->
-            </div>
-          </div>
-        </div>
-        <!-- /Inventory -->
-      </div>
-      <!-- /Second column -->
-
-      <!-- Second column -->
-      <div class="col-12 col-lg-4">
-        <!-- Pricing Card -->
-        <div class="card mb-6">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Pricing</h5>
-          </div>
-          <div class="card-body">
-            <!-- Base Price -->
-            <div class="form-floating form-floating-outline mb-5">
-              <input type="number" class="form-control" id="ecommerce-product-price" placeholder="Price" name="productPrice" aria-label="Product price" />
-              <label for="ecommerce-product-price">Base price</label>
-            </div>
-
-            <!-- Discounted Price -->
-            <div class="form-floating form-floating-outline mb-5">
-              <input type="number" class="form-control" id="ecommerce-product-discount-price" placeholder="Discounted Price" name="productDiscountedPrice" aria-label="Product discounted price" />
-              <label for="ecommerce-product-discount-price">Discounted Price</label>
-            </div>
-            <!-- Charge tax check box -->
-            <div class="form-check m-2 me-0 pb-2">
-              <input class="form-check-input" type="checkbox" value="" id="price-charge-tax" checked />
-              <label class="form-check-label" for="price-charge-tax"> Apply tax to this product </label>
-            </div>
-            <!-- Instock switch -->
-            <div class="d-flex justify-content-between align-items-center border-top pt-4">
-              <p class="mb-0">Ready for sale</p>
-              <div class="w-25 d-flex justify-content-end">
-                <div class="form-check form-switch me-n3 mb-0">
-                  <input type="checkbox" class="form-check-input" checked />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Pricing Card -->
-        <!-- Organize Card -->
-        <div class="card mb-6">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Listing Setup</h5>
-          </div>
-          <div class="card-body">
-            <!-- Shop Section -->
-            <div class="mb-5 col ecommerce-select2-dropdown">
-              <div class="form-floating form-floating-outline">
-                <select id="vendor" class="form-select form-select-sm" data-placeholder="Select Vendor">
-                  <option value="">Select shop section</option>
-                  <option value="featured">Featured shelf</option>
-                  <option value="new-arrivals">New arrivals</option>
-                  <option value="best-sellers">Best sellers</option>
-                </select>
-                <label for="vendor">Shop section</label>
-              </div>
-            </div>
-            <!-- Category -->
-            <div class="mb-5 col ecommerce-select2-dropdown d-flex justify-content-between align-items-center">
-              <div class="form-floating form-floating-outline w-100 me-4">
-                <select id="category-org" class="form-select form-select-sm" data-placeholder="Select Category">
-                  <option value="">Select Category</option>
-                  <option value="Fashion">Fashion</option>
-                  <option value="Beauty">Beauty</option>
-                  <option value="Electronics">Electronics</option>
-                  <option value="Office">Office</option>
-                  <option value="Home">Home</option>
-                </select>
-                <label for="category-org">Category</label>
-              </div>
-              <div>
-                <button class="btn btn-outline-primary btn-icon">
-                  <i class="icon-base ri ri-add-line"></i>
-                </button>
-              </div>
-            </div>
-            <!-- Brand -->
-            <div class="mb-5 col ecommerce-select2-dropdown">
-              <div class="form-floating form-floating-outline">
-                <select id="collection" class="form-select form-select-sm" data-placeholder="Collection">
-                  <option value="">Brand</option>
-                  <option value="prime">Prime Gadget Store</option>
-                  <option value="style">Style Corner</option>
-                  <option value="glow">Glow Basket</option>
-                </select>
-                <label for="collection">Brand</label>
-              </div>
-            </div>
-            <!-- Status -->
-            <div class="mb-5 col ecommerce-select2-dropdown">
-              <div class="form-floating form-floating-outline">
-                <select id="status-org" class="form-select form-select-sm" data-placeholder="Select Status">
-                  <option value="">Select Status</option>
-                  <option value="Published">Published</option>
-                  <option value="Draft">Draft</option>
-                  <option value="Archived">Archived</option>
-                </select>
-                <label for="status-org">Publication status</label>
-              </div>
-            </div>
-            <!-- Tags -->
-            <div>
-              <div class="form-floating form-floating-outline">
-                <input id="ecommerce-product-tags" class="form-control h-auto" name="ecommerce-product-tags" value="featured,new-arrival,bestseller" aria-label="Product Tags" />
-                <label for="ecommerce-product-tags">Search tags</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Organize Card -->
-      </div>
-      <!-- /Second column -->
+  <div class="card">
+    <div class="card-datatable table-responsive">
+      <table class="datatables-products table">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>SKU</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+      </table>
     </div>
   </div>
         </div>
@@ -1159,13 +803,12 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        Seller UI product-vendor workspace
+        , Seller UI workspace
       </div>
       <div class="d-none d-lg-inline-block">
-        <a href="app-ecommerce-dashboard.html" class="footer-link me-4">Dashboard</a>
-        <a href="app-ecommerce-product-list.html" class="footer-link me-4">Products</a>
-        <a href="app-ecommerce-order-list.html" class="footer-link me-4">Orders</a>
-        <a href="app-ecommerce-product-add.html" class="footer-link d-none d-sm-inline-block">Add Product</a>
+        <a href="dashboard.html" class="footer-link me-4">Dashboard</a>
+        <a href="product-list.html" class="footer-link me-4">Products</a>
+        <a href="shop-settings.html" class="footer-link">Shop Settings</a>
       </div>
     </div>
   </div>
@@ -1193,10 +836,7 @@
 <!-- / Layout wrapper -->
 
     
-
-    
-
-    <!-- Core JS -->
+      <!-- Core JS -->
     
       <!-- build:js assets/vendor/js/theme.js  -->
       
@@ -1229,24 +869,19 @@
     
     <!-- endbuild -->
 
-    <!-- Vendors JS -->
-    <script src="assets/vendor/libs/quill/katex.js"></script>
-  <script src="assets/vendor/libs/quill/quill.js"></script>
-  <script src="assets/vendor/libs/select2/select2.js"></script>
-  <script src="assets/vendor/libs/dropzone/dropzone.js"></script>
-  <script src="assets/vendor/libs/jquery-repeater/jquery-repeater.js"></script>
-  <script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
-  <script src="assets/vendor/libs/tagify/tagify.js"></script>
+        <!-- Vendors JS -->
+    <script src="assets/vendor/libs/moment/moment.js"></script>
+    <script src="assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <script src="assets/vendor/libs/select2/select2.js"></script>
 
     <!-- Main JS -->
-    
-      <script src="assets/js/main.js"></script>
-    
+    <script src="assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="assets/js/app-ecommerce-product-add.js"></script>
-    
+    <script src="assets/js/app-ecommerce-product-list.js"></script>
   </body>
 </html>
 
+
   <!-- beautify ignore:end -->
+
