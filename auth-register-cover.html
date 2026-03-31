@@ -112,6 +112,7 @@
 
     <!-- Vendor -->
   <link rel="stylesheet" href="assets/vendor/libs/@form-validation/form-validation.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/bs-stepper/bs-stepper.css" />
 
     <!-- Page CSS -->
     <!-- Page -->
@@ -142,7 +143,7 @@
 
       .seller-auth-panel {
         width: 100%;
-        max-width: 28rem;
+        max-width: 38rem;
       }
 
       .seller-auth-brand-icon {
@@ -185,9 +186,81 @@
         font-weight: 600;
       }
 
+      .seller-register-stepper {
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.12);
+        border-radius: 1.25rem;
+        background: var(--bs-paper-bg, #fff);
+      }
+
+      .seller-register-stepper .bs-stepper-header {
+        padding: 1.5rem 1rem;
+        background: rgba(var(--bs-primary-rgb), 0.03);
+      }
+
+      .seller-register-stepper .step-trigger {
+        padding: 0.75rem 0.5rem;
+        border-radius: 0.875rem;
+      }
+
+      .seller-register-stepper .bs-stepper-content {
+        padding: 1.5rem;
+      }
+
+      .seller-register-stepper .avatar-initial {
+        background: rgba(var(--bs-primary-rgb), 0.12);
+        color: var(--bs-primary);
+      }
+
+      .seller-register-stepper .active .avatar-initial,
+      .seller-register-stepper .step-crossed .avatar-initial {
+        background: var(--bs-primary);
+        color: #fff;
+      }
+
+      .seller-register-stepper .content-header h6 {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+      }
+
+      .seller-register-stepper .content-header small {
+        color: var(--bs-secondary-color);
+      }
+
+      .seller-register-stepper .form-label {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .seller-register-stepper .form-control,
+      .seller-register-stepper .form-select {
+        min-height: 3rem;
+      }
+
+      .seller-register-stepper textarea.form-control {
+        min-height: 7rem;
+      }
+
+      .seller-register-stepper [hidden] {
+        display: none !important;
+      }
+
+      .seller-register-stepper .step[hidden] {
+        display: none !important;
+      }
+
+      .seller-register-hint {
+        display: block;
+        margin-top: 0.5rem;
+        color: var(--bs-secondary-color);
+      }
+
       @media (max-width: 991.98px) {
         .seller-auth-panel {
           max-width: 100%;
+        }
+
+        .seller-register-stepper .bs-stepper-content {
+          padding: 1.25rem;
         }
       }
     </style>
@@ -215,7 +288,7 @@
 
   <div class="authentication-wrapper authentication-cover seller-auth-cover">
     <div class="authentication-inner row m-0">
-      <div class="d-none d-lg-flex col-lg-8 align-items-center justify-content-center seller-auth-visual">
+      <div class="d-none d-lg-flex col-lg-7 align-items-center justify-content-center seller-auth-visual">
         <div class="seller-auth-visual-inner">
           <img
             src="assets/img/illustrations/auth-register-illustration-light.png"
@@ -226,7 +299,7 @@
         </div>
       </div>
 
-      <div class="d-flex col-12 col-lg-4 align-items-center authentication-bg position-relative py-sm-12 px-12 py-6">
+      <div class="d-flex col-12 col-lg-5 align-items-center authentication-bg position-relative py-sm-12 px-12 py-6">
         <div class="seller-auth-panel mx-auto">
           <a href="index.html" class="d-inline-flex mb-6">
             <span class="seller-auth-brand-icon">
@@ -236,68 +309,196 @@
 
           <div class="text-center text-lg-start mb-6">
             <h4 class="mb-1 text-uppercase">Register your shop</h4>
-            <p class="mb-0">Create your seller profile and storefront basics</p>
+            <p class="mb-0">Complete the setup in a vertical wizard using your seller type and business details</p>
           </div>
 
-          <form id="formAuthentication" class="mb-5" action="auth-login-cover.html" method="GET">
-            <div class="seller-auth-section-title">Personal Info</div>
-
-            <div class="form-floating form-floating-outline mb-5 form-control-validation">
-              <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" autofocus />
-              <label for="name">Your Name</label>
-            </div>
-
-            <div class="form-floating form-floating-outline mb-5 form-control-validation">
-              <input type="email" class="form-control" id="email" name="email" placeholder="Email" autocomplete="email" />
-              <label for="email">Your Email</label>
-            </div>
-
-            <div class="form-floating form-floating-outline mb-5 form-control-validation">
-              <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone" autocomplete="tel" />
-              <label for="phone">Your Phone</label>
-            </div>
-
-            <div class="mb-5 form-password-toggle form-control-validation">
-              <div class="input-group input-group-merge">
-                <div class="form-floating form-floating-outline">
-                  <input type="password" id="password" class="form-control" name="password" placeholder="Password" autocomplete="new-password" />
-                  <label for="password">Password</label>
-                </div>
-                <span class="input-group-text cursor-pointer"><i class="icon-base ri ri-eye-off-line icon-20px"></i></span>
+          <div class="bs-stepper vertical seller-register-stepper mb-5" id="seller-register-stepper">
+            <div class="bs-stepper-header">
+              <div class="step active" data-target="#seller-personal-information">
+                <button type="button" class="step-trigger">
+                  <span class="avatar">
+                    <span class="avatar-initial rounded-1">
+                      <i class="icon-base ri ri-user-line icon-24px"></i>
+                    </span>
+                  </span>
+                  <span class="bs-stepper-label flex-column align-items-start ms-2">
+                    <span class="bs-stepper-title">Personal information</span>
+                    <span class="bs-stepper-subtitle">Account setup details</span>
+                  </span>
+                </button>
               </div>
-              <div class="seller-auth-password-note">Password must contain at least 6 digits</div>
-            </div>
 
-            <div class="mb-5 form-password-toggle form-control-validation">
-              <div class="input-group input-group-merge">
-                <div class="form-floating form-floating-outline">
-                  <input
-                    type="password"
-                    id="password-confirmation"
-                    class="form-control"
-                    name="password_confirmation"
-                    placeholder="Confirm Password"
-                    autocomplete="new-password" />
-                  <label for="password-confirmation">Confirm Password</label>
-                </div>
-                <span class="input-group-text cursor-pointer"><i class="icon-base ri ri-eye-off-line icon-20px"></i></span>
+              <div class="step" data-target="#seller-student-verification" data-student-step-header hidden>
+                <button type="button" class="step-trigger">
+                  <span class="avatar">
+                    <span class="avatar-initial rounded-1">
+                      <i class="icon-base ri ri-verified-badge-line icon-24px"></i>
+                    </span>
+                  </span>
+                  <span class="bs-stepper-label flex-column align-items-start ms-2">
+                    <span class="bs-stepper-title">Student verification</span>
+                    <span class="bs-stepper-subtitle">Required for students only</span>
+                  </span>
+                </button>
+              </div>
+
+              <div class="step" data-target="#seller-business-information">
+                <button type="button" class="step-trigger">
+                  <span class="avatar">
+                    <span class="avatar-initial rounded-1">
+                      <i class="icon-base ri ri-store-2-line icon-24px"></i>
+                    </span>
+                  </span>
+                  <span class="bs-stepper-label flex-column align-items-start ms-2">
+                    <span class="bs-stepper-title">Business information</span>
+                    <span class="bs-stepper-subtitle">Shop profile and category</span>
+                  </span>
+                </button>
               </div>
             </div>
 
-            <div class="seller-auth-section-title pt-1">Basic Info</div>
+            <div class="bs-stepper-content">
+              <form id="sellerRegisterForm" action="auth-login-cover.html" method="GET">
+                <div id="seller-personal-information" class="content active dstepper-block">
+                  <div class="content-header mb-4">
+                    <h6>Personal information</h6>
+                    <small>Collect the seller account details first.</small>
+                  </div>
 
-            <div class="form-floating form-floating-outline mb-5 form-control-validation">
-              <input type="text" class="form-control" id="shop-name" name="shop_name" placeholder="Shop Name" />
-              <label for="shop-name">Shop Name</label>
+                  <div class="row g-5">
+                    <div class="col-12">
+                      <label class="form-label" for="full-name">Full name</label>
+                      <input type="text" id="full-name" name="name" class="form-control" placeholder="Enter full name" required autofocus />
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label" for="email">Email</label>
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Enter email address" autocomplete="email" required />
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label" for="student-status">Student or non-student</label>
+                      <select id="student-status" name="student_status" class="form-select" required>
+                        <option value="">Select seller type</option>
+                        <option value="student">Student</option>
+                        <option value="non-student">Non-student</option>
+                      </select>
+                    </div>
+
+                    <div class="col-sm-6 form-password-toggle">
+                      <label class="form-label" for="password">Password</label>
+                      <div class="input-group input-group-merge">
+                        <input type="password" id="password" class="form-control" name="password" placeholder="Enter password" autocomplete="new-password" required />
+                        <span class="input-group-text cursor-pointer"><i class="icon-base ri ri-eye-off-line icon-20px"></i></span>
+                      </div>
+                      <small class="seller-register-hint">Password must contain at least 6 digits</small>
+                    </div>
+
+                    <div class="col-sm-6 form-password-toggle">
+                      <label class="form-label" for="password-confirmation">Confirm password</label>
+                      <div class="input-group input-group-merge">
+                        <input
+                          type="password"
+                          id="password-confirmation"
+                          class="form-control"
+                          name="password_confirmation"
+                          placeholder="Confirm password"
+                          autocomplete="new-password"
+                          required />
+                        <span class="input-group-text cursor-pointer"><i class="icon-base ri ri-eye-off-line icon-20px"></i></span>
+                      </div>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-end">
+                      <button type="button" class="btn btn-primary" data-next-from="personal">
+                        <span class="align-middle me-1">Next</span>
+                        <i class="icon-base ri ri-arrow-right-line icon-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="seller-student-verification" class="content" hidden>
+                  <div class="content-header mb-4">
+                    <h6>Student verification</h6>
+                    <small>This section only applies when the seller is a student.</small>
+                  </div>
+
+                  <div class="row g-5">
+                    <div class="col-12">
+                      <label class="form-label" for="school-selection">School selection</label>
+                      <select id="school-selection" name="school" class="form-select" data-student-required>
+                        <option value="">Select school</option>
+                        <option value="unilag">University of Lagos</option>
+                        <option value="lasu">Lagos State University</option>
+                        <option value="yabatech">Yaba College of Technology</option>
+                        <option value="ui">University of Ibadan</option>
+                        <option value="covenant">Covenant University</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label" for="school-id-front">Upload school ID front</label>
+                      <input type="file" id="school-id-front" name="school_id_front" class="form-control" accept="image/*,.pdf" data-student-required />
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label" for="school-id-back">Upload school ID back</label>
+                      <input type="file" id="school-id-back" name="school_id_back" class="form-control" accept="image/*,.pdf" data-student-required />
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-between">
+                      <button type="button" class="btn btn-outline-secondary" data-prev-from="student">
+                        <i class="icon-base ri ri-arrow-left-line icon-sm me-1"></i>
+                        <span class="align-middle">Previous</span>
+                      </button>
+                      <button type="button" class="btn btn-primary" data-next-from="student">
+                        <span class="align-middle me-1">Next</span>
+                        <i class="icon-base ri ri-arrow-right-line icon-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="seller-business-information" class="content">
+                  <div class="content-header mb-4">
+                    <h6>Business information</h6>
+                    <small>Capture the seller category and shop details.</small>
+                  </div>
+
+                  <div class="row g-5">
+                    <div class="col-12">
+                      <label class="form-label" for="shop-name">Shop name</label>
+                      <input type="text" class="form-control" id="shop-name" name="shop_name" placeholder="Enter shop name" required />
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label" for="business-category">Business category</label>
+                      <select id="business-category" name="business_category" class="form-select" required>
+                        <option value="">Select business category</option>
+                        <option value="food-vendor">Food vendor</option>
+                        <option value="product-vendor">Product vendor</option>
+                        <option value="service-renderer">Service renderer</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label" for="address">Shop address</label>
+                      <textarea id="address" name="address" class="form-control" placeholder="Enter shop address" required></textarea>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-between">
+                      <button type="button" class="btn btn-outline-secondary" data-prev-from="business">
+                        <i class="icon-base ri ri-arrow-left-line icon-sm me-1"></i>
+                        <span class="align-middle">Previous</span>
+                      </button>
+                      <button class="btn btn-primary" type="submit">Register Your Shop</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
-
-            <div class="form-floating form-floating-outline mb-5 form-control-validation">
-              <input type="text" class="form-control" id="address" name="address" placeholder="Address" />
-              <label for="address">Address</label>
-            </div>
-
-            <button class="btn btn-primary d-grid w-100 mb-5" type="submit">Register Your Shop</button>
-          </form>
+          </div>
 
           <p class="mb-4">
             <span>Already have an account?</span>
@@ -355,6 +556,7 @@
     <script src="assets/vendor/libs/@form-validation/popular.js"></script>
   <script src="assets/vendor/libs/@form-validation/bootstrap5.js"></script>
   <script src="assets/vendor/libs/@form-validation/auto-focus.js"></script>
+  <script src="assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
 
     <!-- Main JS -->
     
@@ -362,6 +564,169 @@
     
 
     <!-- Page JS -->
+    <script>
+      (function () {
+        const stepperElement = document.getElementById('seller-register-stepper');
+        const registerForm = document.getElementById('sellerRegisterForm');
+        const studentStatus = document.getElementById('student-status');
+        const studentHeader = document.querySelector('[data-student-step-header]');
+        const studentContent = document.getElementById('seller-student-verification');
+        const studentRequiredFields = studentContent.querySelectorAll('[data-student-required]');
+
+        if (!stepperElement || !registerForm || !studentStatus) {
+          return;
+        }
+
+        const isStudent = () => studentStatus.value === 'student';
+        const personalStepHeader = stepperElement.querySelector('[data-target="#seller-personal-information"]');
+        const businessStepHeader = stepperElement.querySelector('[data-target="#seller-business-information"]');
+        const personalStepContent = document.getElementById('seller-personal-information');
+        const businessStepContent = document.getElementById('seller-business-information');
+        let currentStepId = 'seller-personal-information';
+
+        const getVisibleFields = container =>
+          Array.from(container.querySelectorAll('input, select, textarea')).filter(field => {
+            if (field.type === 'hidden' || field.disabled) return false;
+            if (field.closest('[hidden]')) return false;
+            return true;
+          });
+
+        const validateStep = stepId => {
+          const step = document.getElementById(stepId);
+          if (!step) return true;
+
+          const fields = getVisibleFields(step).filter(field => field.required);
+          for (const field of fields) {
+            if (!field.reportValidity()) {
+              return false;
+            }
+          }
+
+          if (stepId === 'seller-personal-information') {
+            const password = document.getElementById('password');
+            const confirmation = document.getElementById('password-confirmation');
+
+            if (password.value !== confirmation.value) {
+              confirmation.setCustomValidity('Passwords do not match.');
+              confirmation.reportValidity();
+              confirmation.setCustomValidity('');
+              return false;
+            }
+          }
+
+          return true;
+        };
+
+        const syncStudentStep = () => {
+          const showStudentStep = isStudent();
+          studentHeader.hidden = !showStudentStep;
+          studentContent.hidden = !showStudentStep;
+
+          studentRequiredFields.forEach(field => {
+            field.required = showStudentStep;
+            if (!showStudentStep) {
+              if (field.tagName === 'SELECT') {
+                field.value = '';
+              } else {
+                field.value = '';
+              }
+            }
+          });
+        };
+
+        const getVisibleStepOrder = () => {
+          const order = [
+            { header: personalStepHeader, content: personalStepContent },
+            { header: studentHeader.hidden ? null : studentHeader, content: studentHeader.hidden ? null : studentContent },
+            { header: businessStepHeader, content: businessStepContent }
+          ];
+
+          return order.filter(step => step.header && step.content);
+        };
+
+        const renderStep = stepId => {
+          currentStepId = stepId;
+          const visibleSteps = getVisibleStepOrder();
+
+          visibleSteps.forEach((step, index) => {
+            const isCurrent = step.content.id === stepId;
+            const isCompleted = visibleSteps.findIndex(item => item.content.id === stepId) > index;
+
+            step.header.classList.toggle('active', isCurrent);
+            step.header.classList.toggle('step-crossed', isCompleted);
+            step.content.classList.toggle('active', isCurrent);
+            step.content.classList.toggle('dstepper-block', isCurrent);
+            step.content.hidden = !isCurrent;
+          });
+
+          if (!studentHeader.hidden) {
+            const studentActive = stepId === 'seller-student-verification';
+            const studentCompleted = stepId === 'seller-business-information';
+            studentHeader.classList.toggle('active', studentActive);
+            studentHeader.classList.toggle('step-crossed', studentCompleted);
+            studentContent.classList.toggle('active', studentActive);
+            studentContent.classList.toggle('dstepper-block', studentActive);
+            studentContent.hidden = !studentActive;
+          }
+        };
+
+        document.querySelector('[data-next-from="personal"]').addEventListener('click', function () {
+          renderStep(isStudent() ? 'seller-student-verification' : 'seller-business-information');
+        });
+
+        document.querySelector('[data-next-from="student"]').addEventListener('click', function () {
+          renderStep('seller-business-information');
+        });
+
+        document.querySelector('[data-prev-from="student"]').addEventListener('click', function () {
+          renderStep('seller-personal-information');
+        });
+
+        document.querySelector('[data-prev-from="business"]').addEventListener('click', function () {
+          renderStep(isStudent() ? 'seller-student-verification' : 'seller-personal-information');
+        });
+
+        studentStatus.addEventListener('change', function () {
+          syncStudentStep();
+
+          if (!isStudent() && currentStepId === 'seller-student-verification') {
+            renderStep('seller-personal-information');
+            return;
+          }
+
+          renderStep(currentStepId);
+        });
+
+        [personalStepHeader, studentHeader, businessStepHeader].forEach(header => {
+          if (!header) return;
+
+          header.querySelector('.step-trigger').addEventListener('click', function () {
+            if (header.hidden) return;
+            const target = header.getAttribute('data-target');
+            if (target) {
+              renderStep(target.replace('#', ''));
+            }
+          });
+        });
+
+        registerForm.addEventListener('submit', function (event) {
+          const stepsToValidate = [
+            'seller-personal-information',
+            ...(isStudent() ? ['seller-student-verification'] : []),
+            'seller-business-information'
+          ];
+
+          const firstInvalidStep = stepsToValidate.find(stepId => !validateStep(stepId));
+          if (firstInvalidStep) {
+            event.preventDefault();
+            renderStep(firstInvalidStep);
+          }
+        });
+
+        syncStudentStep();
+        renderStep('seller-personal-information');
+      })();
+    </script>
     <script src="assets/js/pages-auth.js"></script>
     
   </body>
